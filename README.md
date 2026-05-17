@@ -15,3 +15,4 @@ Havoc_Project/profiles/havoc.yaotl
 git clone https://github.com/HavocFramework/Havoc.git
 cd Havoc #自行下載
       
+Client端請自行架設
