@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  havoc-teamserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: havoc-teamserver
+    restart: unless-stopped
+    ports:
+      - "40056:40056"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./profiles:/app/profiles
+      - ./data:/app/data          #  新增這行：持久化儲存資料庫
+    networks:
+      - c2-network
+
+networks:
+  c2-network:
+    driver: bridge

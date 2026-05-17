@@ -1,0 +1,29 @@
+# profiles/havoc.yaotl
+
+Teamserver {
+    Host = "0.0.0.0"
+    Port = 40056
+
+    Build {
+        Compiler64 = "/usr/bin/x86_64-w64-mingw32-gcc"
+        Compiler86 = "/usr/bin/i686-w64-mingw32-gcc"
+        Nasm       = "/usr/bin/nasm"
+    }
+}
+
+Operators {
+    user "neo" {
+        Password = "MySecureC2Password123!" #  修正點：移除 Roles 欄位
+    }
+}
+
+Demon {
+    Sleep  = 5
+    Jitter = 15
+    TrustXForwardedFor = false
+
+    Injection {
+        Spawn64 = "C:\\Windows\\System32\\notepad.exe"
+        Spawn32 = "C:\\Windows\\SysWOW64\\notepad.exe"
+    }
+}
